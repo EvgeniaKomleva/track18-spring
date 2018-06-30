@@ -23,9 +23,13 @@ public class App {
         // 4) Get field "success" from JsonObject
 
 
-
-
-        boolean success = false;
+	HttpResponse <JsonNode> r = Unirest.post(URL)
+                .field (name,"Evgenia")
+                .field (github, "https://github.com/EvgeniaKomleva")
+                .field (email, "komleva.1999@inbox.ru")
+                .asJson();
+        System.out.println( r.getBody().getObject().get("success"));
+    }
     }
 
 }
